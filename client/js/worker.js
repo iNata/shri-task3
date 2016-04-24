@@ -1,39 +1,52 @@
 var CACHE_NAME = 'shri-2016-task3-1';
 
 var urlsToCache = [
-  '/',
-  '/index.css',
-  '/index.js'
+  '../',
+  '../css/index.css',
+  'index.js'
 ];
 
+// install - событие кеширования ресурсов
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then(function(cache) {
+                console.log('Opened cache');
                 return cache.addAll(urlsToCache);
-            })
+            }).catch(function(err){
+              console.log(err)
+          })
     );
 });
 
+// настройка ответов на запросы
 self.addEventListener('fetch', function(event) {
     const requestURL = new URL(event.request.url);
 
-    if (/^\/api\/v1/.test(requestURL.pathname)
+    
+      if (/^\/api\/v1/.test(requestURL.pathname)
         && (event.request.method !== 'GET' && event.request.method !== 'HEAD')) {
+
         return event.respondWith(fetch(event.request));
-    }
+      }
 
-    if (/^\/api\/v1/.test(requestURL.pathname)) {
+      if (/^\/api\/v1/.test(requestURL.pathname)) {
+
         return event.respondWith(
-            Promise.race([
-                fetchAndPutToCache(event.request),
-                getFromCache(event.request)
-            ])
+          Promise.race([
+            fetchAndPutToCache(event.request),
+            getFromCache(event.request)
+          ])
         );
-    }
 
+      }
+    
+  
+  
+    //  default pattern
     return event.respondWith(
-        getFromCache(event.request).catch(fetchAndPutToCache);
+        getFromCache(event.request).catch(fetchAndPutToCache)
+      
     );
 });
 

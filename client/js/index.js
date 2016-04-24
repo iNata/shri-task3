@@ -196,8 +196,21 @@ ValidationError.prototype.constructor = ValidationError;
 
 function json(response) { return response.json(); }
 
+
+
 function getStudents() {
-    return fetch('/api/v1/students').then(json);
+    var url = window.location.href.split('/');
+    console.log(url);
+    if(url[2] == 'localhost:8080'){
+      return fetch('/api/v1/students').then(json).catch(function(err) {
+        console.log(':( '+ err);
+      });
+    }else{
+      return fetch('../server/data/students.json').then(json).catch(function(err) {
+        console.log(':( '+ err);
+      });
+    }
+    
 }
 
 function addStudent(student) {
@@ -210,13 +223,13 @@ function addStudent(student) {
     }).then(json);
 }
 
-function updateStudent(student) {
+function updateStudent(student) {  
     return fetch(`/api/v1/students/${student.id}`, {
-        method: 'put',
+      method: 'put',
         headers: {
-            "Content-type": "application/json; charset=UTF-8"
-        },
-        body: JSON.stringify(student)
+        "Content-type": "application/json; charset=UTF-8"
+      },
+      body: JSON.stringify(student)
     }).then(json);
 }
 
