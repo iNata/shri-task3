@@ -1,8 +1,32 @@
 [
-    {
-        "name": "Иван Иванов",
-        "picSrc": "http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50",
-        "bio": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        "id": 1
-    }
+  {
+    "name": "Иван Иванов",
+    "picSrc": "https://jakearchibald.com/static/imgs/me.439a7c69520f.jpg",
+    "bio": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "id": 1
+  },
+  {
+    "name": "audrey",
+    "picSrc": "http://img0.gtsstatic.com/wallpapers/ecddb0934c5dcfddc66a3b45a52efba6_large.jpeg",
+    "bio": "actress",
+    "id": 2
+  },
+  {
+    "name": "george",
+    "picSrc": "https://jakearchibald.com/static/imgs/me.439a7c69520f.jpg",
+    "bio": "info",
+    "id": 3
+  },
+  {
+    "name": "peter",
+    "picSrc": "https://jakearchibald.com/static/imgs/me.439a7c69520f.jpg",
+    "bio": "info",
+    "id": 4
+  },
+  {
+    "name": "noname",
+    "picSrc": "https://jakearchibald.com/static/imgs/me.439a7c69520f.jpg",
+    "bio": "test",
+    "id": 5
+  }
 ]
